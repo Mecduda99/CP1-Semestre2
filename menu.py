@@ -14,15 +14,19 @@ while True:
     choice = input("Adicione a opção desejada: ")
 
     if choice == "1":
+
+        load_users_from_csv('./usuarios.csv')
+
         name = input("Enter name: ")
         email = input("Enter email: ")
         
-        save_users_to_csv('./usuarios.csv', users)
-
         if email in users:
             print("User with this email already exists.")
         else:
             users[email] = name
+
+            save_users_to_csv('./usuarios.csv', users)
+
             print(f"{name} added successfully!")
 
     elif choice == "2":
